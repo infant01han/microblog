@@ -6,6 +6,8 @@
 # @Software: PyCharm
 from datetime import datetime
 
+from werkzeug.security import generate_password_hash, check_password_hash
+
 from app import db
 
 class User(db.Model):
@@ -17,6 +19,10 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
+    def set_password(self,passwd):
+        self.password_hash = generate_password_hash(passwd)
+    def check_password(self,passwd):
+        return check_password_hash(self.password_hash,passwd)
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
