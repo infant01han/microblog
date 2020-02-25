@@ -5,10 +5,15 @@
 # @File    : __init__.py.py
 # @Software: PyCharm
 from flask import Flask
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
 
 from config import Config
 
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = "I am a secret, you can't guess."
 app.config.from_object(Config)
-from app import routes  # 这里要写在app后面
+db = SQLAlchemy(app)#数据库对象
+migrate = Migrate(app, db)#迁移引擎对象
+
+from app import routes,models # 这里要写在app后面
