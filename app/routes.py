@@ -4,8 +4,9 @@
 # @Email   : hanlei5012@163.com
 # @File    : routes.py
 # @Software: PyCharm
-from flask import render_template, flash, redirect, url_for, session
-from flask_login import login_user, current_user, logout_user
+from flask import render_template, flash, redirect, url_for, session, request
+from flask_login import login_user, current_user, logout_user, login_required
+from werkzeug.urls import url_parse
 
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
@@ -14,6 +15,7 @@ from app.models import User
 
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
     # usr = {'username':'zhangsan'}
     posts = [#创建一个列表：帖子。里面元素是两个字典，每个字典里元素还是字典，分别作者、帖子内容。
@@ -39,7 +41,12 @@ def login():
             flash('Invalid username or password')
             return redirect(url_for('login'))
         login_user(user,remember=form.remember_me.data)
-        return redirect(url_for('index'))
+
+        # 重定向到 next 页面，从哪里跳到登录页面的回到哪里去
+        next_page = request.args.get('next')
+        if not next_page or url_parse(next_page).netloc != '':
+            return redirect(url_for('index'))
+        return redirect(next_page)
 
     return render_template('login.html',title='login',form=form)
 

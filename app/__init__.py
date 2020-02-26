@@ -17,5 +17,6 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)#数据库对象
 migrate = Migrate(app, db)#迁移引擎对象
 login = LoginManager(app)
+login.login_view = 'login'#指定登录视图
 
 from app import routes,models # 这里要写在app后面
