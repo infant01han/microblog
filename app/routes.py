@@ -4,6 +4,7 @@
 # @Email   : hanlei5012@163.com
 # @File    : routes.py
 # @Software: PyCharm
+from datetime import datetime
 from hashlib import md5
 
 from flask import render_template, flash, redirect, url_for, session, request
@@ -14,6 +15,12 @@ from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from app.models import User
 
+# 拦截器
+@app.before_request
+def before_request():
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.utcnow()
+        db.session.commit()
 
 @app.route('/')
 @app.route('/index')
