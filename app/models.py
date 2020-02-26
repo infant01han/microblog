@@ -4,6 +4,7 @@
 # @Email   : hanlei5012@163.com
 # @File    : models.py
 # @Software: PyCharm
+from hashlib import md5
 from datetime import datetime
 
 from flask_login import UserMixin
@@ -29,6 +30,9 @@ class User(UserMixin,db.Model):
         self.password_hash = generate_password_hash(passwd)
     def check_password(self,passwd):
         return check_password_hash(self.password_hash,passwd)
+    def avatar(self,size):
+        hashvalue = md5(self.email.lower().encode('utf-8')).hexdigest()
+        return f'https://www.gravatar.com/avatar/{hashvalue}?d=identicon&s={size}'
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
