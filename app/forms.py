@@ -40,3 +40,13 @@ class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     about_me = TextAreaField('About_me', validators=[Length(min=0, max=140)])
     submit = SubmitField('Submit')
+
+    def __init__(self,username):
+        super().__init__()
+        self.old_username = username
+
+    def validate_username(self,username):
+        if username.data != self.old_username:
+            user = User.query.filter_by(username=username.data).first()
+            if user is not None:
+                raise ValidationError('用户名已存在，请重新输入')
