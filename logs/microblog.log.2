@@ -1,4 +1,8 @@
-2020-02-27 15:11:21,720 ERROR: Exception on /index [GET] [in D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\flask\app.py:1891]
+2020-02-26 23:23:35,859 INFO: Microblog startup [in D:/neusoft-python/ÍøÉÏÊÚ¿Î/flask¿ò¼Ü/microblog/microblog.py:13]
+2020-02-26 23:47:11,972 INFO: Microblog startup [in D:/neusoft-python/ÍøÉÏÊÚ¿Î/flask¿ò¼Ü/microblog/microblog.py:13]
+2020-02-27 14:38:49,159 INFO: Microblog startup [in D:/neusoft-python/ÍøÉÏÊÚ¿Î/flask¿ò¼Ü/microblog/microblog.py:13]
+2020-02-27 15:04:29,570 INFO: Microblog startup [in D:/neusoft-python/ÍøÉÏÊÚ¿Î/flask¿ò¼Ü/microblog/microblog.py:13]
+2020-02-27 15:05:04,106 ERROR: Exception on /index [GET] [in D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -35,7 +39,7 @@ Traceback (most recent call last):
   File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\jinja2\environment.py", line 471, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2020-02-27 15:11:25,444 ERROR: Exception on /index [GET] [in D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\flask\app.py:1891]
+2020-02-27 15:05:15,371 ERROR: Exception on /index [GET] [in D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -72,10 +76,7 @@ Traceback (most recent call last):
   File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\jinja2\environment.py", line 471, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'form' is undefined
-2020-02-27 15:15:03,482 INFO: Microblog startup [in D:/neusoft-python/ÍøÉÏÊÚ¿Î/flask¿ò¼Ü/microblog/microblog.py:13]
-2020-02-27 15:25:52,531 INFO: Microblog startup [in D:/neusoft-python/ÍøÉÏÊÚ¿Î/flask¿ò¼Ü/microblog/microblog.py:13]
-2020-02-27 15:47:45,768 INFO: Microblog startup [in D:/neusoft-python/ÍøÉÏÊÚ¿Î/flask¿ò¼Ü/microblog/microblog.py:13]
-2020-02-27 15:47:49,460 ERROR: Exception on /index [GET] [in D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\flask\app.py:1891]
+2020-02-27 15:05:41,400 ERROR: Exception on /index [GET] [in D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -92,7 +93,7 @@ Traceback (most recent call last):
   File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
   File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\app\routes.py", line 38, in index
-    return render_template('index.html',title='home',form=form,posts=posts)
+    return render_template('index.html',title='home',posts=posts)
   File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\flask\templating.py", line 140, in render_template
     ctx.app,
   File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\flask\templating.py", line 120, in _render
@@ -105,10 +106,11 @@ Traceback (most recent call last):
     raise value.with_traceback(tb)
   File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\app\templates\index.html", line 1, in top-level template code
     {% extends 'base.html' %}
-  File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\app\templates\base.html", line 12, in template
-    <a href="{{url_for('explore'}}">Explore</a>
-jinja2.exceptions.TemplateSyntaxError: unexpected '}', expected ')'
+  File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\app\templates\base.html", line 29, in top-level template code
+    {% block content %}
+  File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\app\templates\index.html", line 5, in block "content"
+    {{ form.hidden_tag() }}
+  File "D:\neusoft-python\ÍøÉÏÊÚ¿Î\flask¿ò¼Ü\microblog\venv\lib\site-packages\jinja2\environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'form' is undefined
+2020-02-27 15:11:15,975 INFO: Microblog startup [in D:/neusoft-python/ÍøÉÏÊÚ¿Î/flask¿ò¼Ü/microblog/microblog.py:13]
