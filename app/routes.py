@@ -12,8 +12,9 @@ from flask_login import login_user, current_user, logout_user, login_required
 from werkzeug.urls import url_parse
 
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm
-from app.models import User
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm
+from app.models import User, Post
+
 
 # 拦截器
 @app.before_request
@@ -23,21 +24,18 @@ def before_request():
         db.session.commit()
 
 @app.route('/')
-@app.route('/index')
+@app.route('/index',methods=['GET','POST'])
 @login_required
 def index():
+    form = PostForm()
     # usr = {'username':'zhangsan'}
-    posts = [#创建一个列表：帖子。里面元素是两个字典，每个字典里元素还是字典，分别作者、帖子内容。
-        {
-            'author': {'username':'John'},
-            'body':'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username':'Susan'},
-            'body':'The Avengers movie was so cool!'
-        }
-    ]
-    return render_template('index.html',title='home',posts=posts)
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('index'))
+    posts = current_user.followed_posts().all()
+    return render_template('index.html',title='home',form=form,posts=posts)
 
 @app.route('/login',methods=['GET','POST'])
 def login():
